@@ -29,5 +29,5 @@ O projeto está programado para utilizar os pinos GPIOs da Raspberry Pi Pico W c
 
 ## **Link do Vídeo**  
 
-https://drive.google.com/file/d/1NuUb0r1XfHRgWLQAv0Yj6BlDyNkLGItU/view?usp=drive_link
+[https://drive.google.com/file/d/1NuUb0r1XfHRgWLQAv0Yj6BlDyNkLGItU/view?usp=drive_link](https://drive.google.com/file/d/1NuUb0r1XfHRgWLQAv0Yj6BlDyNkLGItU/view?usp=sharing)
 
