@@ -69,19 +69,19 @@ int main()
             break;
 
         case 'A':
-            /* code */
+            liga_led_rgb(1,0,0);
             break;
 
         case 'B':
-            /* code */
+            liga_led_rgb(0,1,0);
             break;
 
         case 'C':
-            /* code */
+            liga_led_rgb(0,0,1);
             break;
 
         case 'D':
-            /* code */
+            liga_led_rgb(1,1,1);
             break;
 
         case '*':
@@ -129,3 +129,22 @@ char teclado_get(void){
     return '\0';
 }
 
+void led_rgb_init(void){
+    gpio_init(LED_RED);
+    gpio_init(LED_GREEN);
+    gpio_init(LED_BLUE);
+
+    gpio_set_dir(LED_RED, GPIO_OUT);
+    gpio_set_dir(LED_GREEN, GPIO_OUT);
+    gpio_set_dir(LED_BLUE, GPIO_OUT);
+}
+
+void liga_led_rgb(bool red, bool green, bool blue){
+    gpio_put(LED_RED, red);
+    gpio_put(LED_GREEN, green);
+    gpio_put(LED_BLUE, blue);
+    sleep_ms(1000);
+    gpio_put(LED_RED, 0);
+    gpio_put(LED_GREEN, 0);
+    gpio_put(LED_BLUE, 0);
+}
