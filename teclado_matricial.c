@@ -1,11 +1,18 @@
 #include <stdio.h>
+#include "pico/stdlib.h"
+#include "hardware/pwm.h"
 
 #define ROWS 4
 #define COLUMNS 4
-#define LED_RED 12
-#define LED_GREEN 13
-#define LED_BLUE 14
-#define BUZZER 10
+#define LED_RED 13
+#define LED_GREEN 11
+#define LED_BLUE 12
+#define BUZZER 21
+
+#define SLICE_GPIO10 2
+#define CHANNEL_GPIO10 PWM_CHAN_B
+#define TOP 8877
+#define DIV 32
 
 const uint8_t pin_rows[ROWS] = {2, 3, 4, 5};
 const uint8_t pin_columns[COLUMNS] = {16, 17, 18, 19};
@@ -19,11 +26,19 @@ const char key_map[ROWS][COLUMNS] = {
 
 char teclado_get(void);
 void teclado_init (void);
+void led_rgb_init(void);
+void liga_led_rgb(bool red, bool green, bool blue);
+void buzzer_init(void);
+
 
 int main()
 {
     char tecla;
     teclado_init();
+    led_rgb_init();
+    buzzer_init();
+    stdio_init_all();
+
     while (true) {
         tecla = teclado_get();
         switch (tecla)
@@ -89,7 +104,9 @@ int main()
             break;
 
         case '#':
-            /* code */
+            pwm_set_chan_level(SLICE_GPIO10, CHANNEL_GPIO10, (TOP + 1)/2);
+            sleep_ms(1000);
+            pwm_set_chan_level(SLICE_GPIO10, CHANNEL_GPIO10, 0);
             break;
 
         default:
@@ -147,4 +164,12 @@ void liga_led_rgb(bool red, bool green, bool blue){
     gpio_put(LED_RED, 0);
     gpio_put(LED_GREEN, 0);
     gpio_put(LED_BLUE, 0);
+}
+
+void buzzer_init(void){
+    gpio_set_function(BUZZER, GPIO_FUNC_PWM);
+    pwm_set_wrap(SLICE_GPIO10, TOP);
+    pwm_set_clkdiv(SLICE_GPIO10, DIV);
+    pwm_set_chan_level(SLICE_GPIO10, CHANNEL_GPIO10, 0);
+    pwm_set_enabled(SLICE_GPIO10, true);
 }
