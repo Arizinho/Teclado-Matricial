@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "pico/stdlib.h"
 
 #define ROWS 4
 #define COLUMNS 4
@@ -23,11 +22,80 @@ void teclado_init (void);
 
 int main()
 {
-    stdio_init_all();
-
+    char tecla;
+    teclado_init();
     while (true) {
-        printf("Hello, world!\n");
-        sleep_ms(1000);
+        tecla = teclado_get();
+        switch (tecla)
+        {
+        case '1':
+            /* code */
+            break;
+        
+        case '2':
+            /* code */
+            break;
+
+        case '3':
+            /* code */
+            break;
+        
+        case '4':
+            /* code */
+            break;
+
+        case '5':
+            /* code */
+            break;
+
+        case '6':
+            /* code */
+            break;
+
+        case '7':
+            /* code */
+            break;
+
+        case '8':
+            /* code */
+            break;
+
+        case '9':
+            /* code */
+            break;
+
+        case '0':
+            /* code */
+            break;
+
+        case 'A':
+            /* code */
+            break;
+
+        case 'B':
+            /* code */
+            break;
+
+        case 'C':
+            /* code */
+            break;
+
+        case 'D':
+            /* code */
+            break;
+
+        case '*':
+            /* code */
+            break;
+
+        case '#':
+            /* code */
+            break;
+
+        default:
+            break;
+        }
+        
     }
 }
 
