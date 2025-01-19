@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/pwm.h"
+#include "pico/bootrom.h"
 
 #define ROWS 4
 #define COLUMNS 4
@@ -44,43 +45,53 @@ int main()
         switch (tecla)
         {
         case '1':
-            /* code */
+            printf("A tecla %c foi pressionada.\n", tecla);
+            sleep_ms(250);
             break;
         
         case '2':
-            /* code */
+            printf("A tecla %c foi pressionada.\n", tecla);
+            sleep_ms(250);
             break;
 
         case '3':
-            /* code */
+            printf("A tecla %c foi pressionada.\n", tecla);
+            sleep_ms(250);
             break;
         
         case '4':
-            /* code */
+            printf("A tecla %c foi pressionada.\n", tecla);
+            sleep_ms(250);
             break;
 
         case '5':
-            /* code */
+            printf("A tecla %c foi pressionada.\n", tecla);
+            sleep_ms(250);
             break;
 
         case '6':
-            /* code */
+            printf("A tecla %c foi pressionada.\n", tecla);
+            sleep_ms(250);
             break;
 
         case '7':
-            /* code */
+            printf("A tecla %c foi pressionada.\n", tecla);
+            sleep_ms(250);
             break;
 
         case '8':
-            /* code */
+            printf("A tecla %c foi pressionada.\n", tecla);
+            sleep_ms(250);
             break;
 
         case '9':
-            /* code */
+            printf("A tecla %c foi pressionada.\n", tecla);
+            sleep_ms(250);
             break;
 
         case '0':
-            /* code */
+            printf("A tecla %c foi pressionada.\n", tecla);
+            sleep_ms(250);
             break;
 
         case 'A':
@@ -100,7 +111,7 @@ int main()
             break;
 
         case '*':
-            /* code */
+            reset_usb_boot(0,0);
             break;
 
         case '#':
