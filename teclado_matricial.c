@@ -121,6 +121,8 @@ int main()
             break;
 
         default:
+            //delay diminuir o travamento na simulação
+            sleep_ms(1);
             break;
         }
         
