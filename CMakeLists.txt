@@ -46,7 +46,7 @@ pico_enable_stdio_usb(teclado_matricial 1)
 
 # Add the standard library to the build
 target_link_libraries(teclado_matricial
-        pico_stdlib)
+        pico_stdlib hardware_pwm pico_bootrom)
 
 # Add the standard include files to the build
 target_include_directories(teclado_matricial PRIVATE
